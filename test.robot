@@ -13,7 +13,7 @@ ${markets_section}   //*[@id="market-fold"]
 ${deriv_life}    //*[text()="deriv life"]//parent::a
 
 # Footer
-${youtube}    //a[@href="https://www.youtube.com/@derivlife"]
+${youtube}    //a[@href="https://www.youtube.com/@deriv"]
 ${reddit}    //a[@href="https://www.reddit.com/user/Deriv_official/"]
 ${telegram}    //a[@href="https://t.me/derivdotcomofficial"]
 ${facebook}    //a[@href="https://www.facebook.com/derivdotcom"]
