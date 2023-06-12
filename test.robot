@@ -10,7 +10,7 @@ Library    XML
 @{chrome_arguments}	    --disable-infobars    --headless    --disable-gpu    --window-size=1280,1024
 ${HOME URL}    https://deriv.com
 ${markets_section}   //*[@id="market-fold"]
-${deriv_life}    //*[text()="deriv life"]//parent::div
+${deriv_life}    //*[text()="deriv life"]//parent::a
 
 # Footer
 ${youtube}    //a[@href="https://www.youtube.com/@derivlife"]
@@ -91,7 +91,7 @@ Check Trading Platforms
     Page Should Contain    Trade the world’s markets with our popular user-friendly platform.
     Page Should Contain Element    ${deriv_trader}
     Page Should Contain    A whole new trading experience on a powerful yet easy to use platform.
-    Page Should Not Contain Element    ${deriv_go}
+    Page Should Contain Element    ${deriv_go}
     Page Should Contain    Trade multipliers on forex, cryptocurrencies, and synthetic indices with our mobile app.
     Page Should Contain Element    ${deriv_bot}
     Page Should Contain    Automated trading at your fingertips. No coding needed.
