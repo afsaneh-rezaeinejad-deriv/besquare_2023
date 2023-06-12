@@ -10,19 +10,19 @@ Library    XML
 @{chrome_arguments}	    --disable-infobars    --headless    --disable-gpu    --window-size=1280,1024
 ${HOME URL}    https://deriv.com
 ${markets_section}   //*[@id="market-fold"]
-${deriv_life}    //*[text()="deriv life"]//parent::div
+
 
 # Footer
-${youtube}    //a[@href="https://www.youtube.com/@derivlife"]
-${reddit}    //a[@href="https://www.reddit.com/user/Deriv_official/"]
+${youtube}    //a[@href="https://www.youtube.com/c/Derivdotcom"]
 ${telegram}    //a[@href="https://t.me/derivdotcomofficial"]
 ${facebook}    //a[@href="https://www.facebook.com/derivdotcom"]
 ${twitter}    //a[@href="https://twitter.com/derivdotcom/"]
 ${instagram}    //a[@href="https://www.instagram.com/deriv_official/"]
 ${linkedin}    //a[@href="https://www.linkedin.com/company/derivdotcom/"]
-${swap_calculator}    https://deriv.com/trader-tools/swap-calculator/
+${swap_calculator}    //a[@href="https://deriv.com/trader-tools/swap-calculator/"]
 ${calculator_table}    //form[@action="#"]
 ${symbol}    //ul[@id="symbol"]
+${deriv_life}    //a[@href="https://derivlife.com/"]
 
 # Trade types
 ${CFDs}    //h2[text()= "CFDs"]
@@ -91,7 +91,7 @@ Check Trading Platforms
     Page Should Contain    Trade the world’s markets with our popular user-friendly platform.
     Page Should Contain Element    ${deriv_trader}
     Page Should Contain    A whole new trading experience on a powerful yet easy to use platform.
-    Page Should Not Contain Element    ${deriv_go}
+    Page Should Contain Element    ${deriv_go}
     Page Should Contain    Trade multipliers on forex, cryptocurrencies, and synthetic indices with our mobile app.
     Page Should Contain Element    ${deriv_bot}
     Page Should Contain    Automated trading at your fingertips. No coding needed.
@@ -125,16 +125,16 @@ Check Traders Menu
 Check Deriv Life
     Open About US Menu
     Click Element    ${deriv_life}
-    Page Should Contain    Making an impact that matters
+    Page Should Contain   Making an impact that matters
 #check social media link is correct
 Check Social Networks
-    Switch Window     Online trading platform | Forex, commodities, synthetic indices, stocks, and stock indices | Deriv
+    Switch Window  main
     Scroll Element Into View    //footer
     Page Should Contain Element    ${youtube}
-    Page Should Contain Element    ${telegram}
+    Page Should Not Contain Element    ${telegram}
     Page Should Contain Element    ${facebook}
-    Page Should Contain Element    ${twitter}
-    Page Should Contain Element    ${instagram}
+    Page Should Not Contain Element    ${twitter}
+    Page Should Not Contain Element    ${instagram}
     Page Should Contain Element    ${linkedin}
     
 #check swap calculator works fine
