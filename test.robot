@@ -110,7 +110,7 @@ Switch To Financial
         Click Element    //p[contains(@class,"typography__Text") and text()="Financial"]
 
 Check Swap Charge
-     ${expected_swap}=    Evaluate    "{:,}".format(100*100000*5)
+     ${expected_swap}=    Evaluate    "{:,.0f}".format(100*100000*10*0.5)
      SeleniumLibrary.Element Text Should Be    //*[text()="USD"]//preceding-sibling::div     ${expected_swap}
 
 *** Test Cases ***
