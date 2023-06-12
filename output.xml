@@ -1,553 +1,150 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 6.0.2 (Python 3.10.6 on linux)" generated="20230612 14:47:52.570" rpa="false" schemaversion="3">
-<suite id="s1" name="Test" source="/home/farhah/Documents/besquare_2023/test.robot">
-<test id="s1-t1" name="Check Traders Menu" line="118">
-<kw name="Go To Homepage">
-<kw name="Chrome Headless">
-<kw name="Set Chrome Options">
-<var>${chrome_options}</var>
-<doc>Set Chrome options for headless mode</doc>
-<kw name="Evaluate" library="BuiltIn">
-<var>${options}</var>
-<arg>sys.modules['selenium.webdriver'].ChromeOptions()</arg>
-<arg>sys, selenium.webdriver</arg>
-<doc>Evaluates the given expression in Python and returns the result.</doc>
-<msg timestamp="20230612 14:47:52.803" level="INFO">${options} = &lt;selenium.webdriver.chrome.options.Options object at 0x7fc3b3dd1fc0&gt;</msg>
-<status status="PASS" starttime="20230612 14:47:52.803" endtime="20230612 14:47:52.803"/>
-</kw>
-<for flavor="IN">
-<var>${option}</var>
-<value>@{chrome_arguments}</value>
-<iter>
-<var name="${option}">--disable-infobars</var>
-<kw name="Call Method" library="BuiltIn">
-<arg>${options}</arg>
-<arg>add_argument</arg>
-<arg>${option}</arg>
-<doc>Calls the named method of the given object with the provided arguments.</doc>
-<status status="PASS" starttime="20230612 14:47:52.804" endtime="20230612 14:47:52.804"/>
-</kw>
-<status status="PASS" starttime="20230612 14:47:52.804" endtime="20230612 14:47:52.804"/>
-</iter>
-<iter>
-<var name="${option}">--headless</var>
-<kw name="Call Method" library="BuiltIn">
-<arg>${options}</arg>
-<arg>add_argument</arg>
-<arg>${option}</arg>
-<doc>Calls the named method of the given object with the provided arguments.</doc>
-<status status="PASS" starttime="20230612 14:47:52.804" endtime="20230612 14:47:52.804"/>
-</kw>
-<status status="PASS" starttime="20230612 14:47:52.804" endtime="20230612 14:47:52.804"/>
-</iter>
-<iter>
-<var name="${option}">--disable-gpu</var>
-<kw name="Call Method" library="BuiltIn">
-<arg>${options}</arg>
-<arg>add_argument</arg>
-<arg>${option}</arg>
-<doc>Calls the named method of the given object with the provided arguments.</doc>
-<status status="PASS" starttime="20230612 14:47:52.805" endtime="20230612 14:47:52.805"/>
-</kw>
-<status status="PASS" starttime="20230612 14:47:52.804" endtime="20230612 14:47:52.805"/>
-</iter>
-<iter>
-<var name="${option}">--window-size=1280,1024</var>
-<kw name="Call Method" library="BuiltIn">
-<arg>${options}</arg>
-<arg>add_argument</arg>
-<arg>${option}</arg>
-<doc>Calls the named method of the given object with the provided arguments.</doc>
-<status status="PASS" starttime="20230612 14:47:52.805" endtime="20230612 14:47:52.805"/>
-</kw>
-<status status="PASS" starttime="20230612 14:47:52.805" endtime="20230612 14:47:52.805"/>
-</iter>
-<status status="PASS" starttime="20230612 14:47:52.803" endtime="20230612 14:47:52.805"/>
-</for>
-<msg timestamp="20230612 14:47:52.806" level="INFO">${chrome_options} = &lt;selenium.webdriver.chrome.options.Options object at 0x7fc3b3dd1fc0&gt;</msg>
-<status status="PASS" starttime="20230612 14:47:52.803" endtime="20230612 14:47:52.806"/>
-</kw>
-<kw name="Create Webdriver" library="SeleniumLibrary">
-<arg>Chrome</arg>
-<arg>chrome_options=${chrome_options}</arg>
-<doc>Creates an instance of Selenium WebDriver.</doc>
-<msg timestamp="20230612 14:47:52.806" level="INFO">Creating an instance of the Chrome WebDriver.</msg>
-<status status="PASS" starttime="20230612 14:47:52.806" endtime="20230612 14:47:53.459"/>
-</kw>
-<status status="PASS" starttime="20230612 14:47:52.802" endtime="20230612 14:47:53.460"/>
-</kw>
-<kw name="Go To" library="SeleniumLibrary">
-<arg>${HOME URL}</arg>
-<doc>Navigates the current browser window to the provided ``url``.</doc>
-<msg timestamp="20230612 14:47:53.460" level="INFO">Opening url 'https://deriv.com'</msg>
-<status status="PASS" starttime="20230612 14:47:53.460" endtime="20230612 14:47:55.043"/>
+<robot generator="Robot 6.0.2 (Python 3.10.6 on linux)" generated="20230612 18:01:26.873" rpa="false" schemaversion="3">
+<suite id="s1" name="Project1" source="/home/farhah/Documents/besquare_2023/project1.robot">
+<test id="s1-t1" name="login" line="25">
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>https://app.deriv.com/</arg>
+<arg>chrome</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20230612 18:01:27.050" level="INFO">Opening browser 'chrome' to base url 'https://app.deriv.com/'.</msg>
+<status status="PASS" starttime="20230612 18:01:27.049" endtime="20230612 18:01:31.412"/>
 </kw>
 <kw name="Set Window Size" library="SeleniumLibrary">
-<arg>1300</arg>
-<arg>800</arg>
+<arg>1280</arg>
+<arg>1024</arg>
 <doc>Sets current windows size to given ``width`` and ``height``.</doc>
-<status status="PASS" starttime="20230612 14:47:55.043" endtime="20230612 14:47:55.149"/>
+<status status="PASS" starttime="20230612 18:01:31.413" endtime="20230612 18:01:31.628"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>5</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20230612 18:01:36.629" level="INFO">Slept 5 seconds</msg>
+<status status="PASS" starttime="20230612 18:01:31.629" endtime="20230612 18:01:36.629"/>
 </kw>
 <kw name="Wait Until Page Contains Element" library="SeleniumLibrary">
-<arg>dm-nav-login-button</arg>
-<doc>Waits until the element ``locator`` appears on the current page.</doc>
-<status status="PASS" starttime="20230612 14:47:55.149" endtime="20230612 14:47:55.171"/>
-</kw>
-<status status="PASS" starttime="20230612 14:47:52.802" endtime="20230612 14:47:55.171"/>
-</kw>
-<kw name="Open Trade Menu">
-<kw name="Click Element" library="SeleniumLibrary">
-<arg>//p[text()="Trade"]</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<msg timestamp="20230612 14:47:55.172" level="INFO">Clicking element '//p[text()="Trade"]'.</msg>
-<status status="PASS" starttime="20230612 14:47:55.171" endtime="20230612 14:47:55.387"/>
-</kw>
-<kw name="Wait Until Page Contains" library="SeleniumLibrary">
-<arg>Trade types</arg>
-<doc>Waits until ``text`` appears on the current page.</doc>
-<status status="PASS" starttime="20230612 14:47:55.387" endtime="20230612 14:47:55.419"/>
-</kw>
-<kw name="Mouse Over" library="SeleniumLibrary">
-<arg>//p[text()="Trade"]</arg>
-<doc>Simulates hovering the mouse over the element ``locator``.</doc>
-<msg timestamp="20230612 14:47:55.420" level="INFO">Simulating Mouse Over on element '//p[text()="Trade"]'.</msg>
-<status status="PASS" starttime="20230612 14:47:55.419" endtime="20230612 14:47:55.698"/>
-</kw>
-<status status="PASS" starttime="20230612 14:47:55.171" endtime="20230612 14:47:55.698"/>
-</kw>
-<kw name="Check Trade Types">
-<kw name="Page Should Contain Element" library="SeleniumLibrary">
-<arg>${CFDs}</arg>
-<doc>Verifies that element ``locator`` is found on the current page.</doc>
-<msg timestamp="20230612 14:47:55.723" level="INFO">Current page contains element '//h2[text()= "CFDs"]'.</msg>
-<status status="PASS" starttime="20230612 14:47:55.699" endtime="20230612 14:47:55.723"/>
-</kw>
-<kw name="Page Should Contain" library="SeleniumLibrary">
-<arg>Trade with leverage and tight spreads for better returns on successful trades.</arg>
-<doc>Verifies that current page contains ``text``.</doc>
-<msg timestamp="20230612 14:47:55.753" level="INFO">Current page contains text 'Trade with leverage and tight spreads for better returns on successful trades.'.</msg>
-<status status="PASS" starttime="20230612 14:47:55.724" endtime="20230612 14:47:55.753"/>
-</kw>
-<kw name="Page Should Contain Element" library="SeleniumLibrary">
-<arg>${options}</arg>
-<doc>Verifies that element ``locator`` is found on the current page.</doc>
-<msg timestamp="20230612 14:47:55.770" level="INFO">Current page contains element '//h2[text()="Options"]'.</msg>
-<status status="PASS" starttime="20230612 14:47:55.754" endtime="20230612 14:47:55.771"/>
-</kw>
-<kw name="Page Should Contain" library="SeleniumLibrary">
-<arg>Earn a range of payouts without risking more than your initial stake.</arg>
-<doc>Verifies that current page contains ``text``.</doc>
-<msg timestamp="20230612 14:47:55.791" level="INFO">Current page contains text 'Earn a range of payouts without risking more than your initial stake.'.</msg>
-<status status="PASS" starttime="20230612 14:47:55.771" endtime="20230612 14:47:55.791"/>
-</kw>
-<kw name="Page Should Contain Element" library="SeleniumLibrary">
-<arg>${multiplier}</arg>
-<doc>Verifies that element ``locator`` is found on the current page.</doc>
-<msg timestamp="20230612 14:47:55.807" level="INFO">Current page contains element '//h2[text()="Multipliers"]'.</msg>
-<status status="PASS" starttime="20230612 14:47:55.792" endtime="20230612 14:47:55.807"/>
-</kw>
-<kw name="Page Should Contain" library="SeleniumLibrary">
-<arg>Get the upside of CFDs without the downside of losing more than your stake.</arg>
-<doc>Verifies that current page contains ``text``.</doc>
-<msg timestamp="20230612 14:47:55.828" level="INFO">Current page contains text 'Get the upside of CFDs without the downside of losing more than your stake.'.</msg>
-<status status="PASS" starttime="20230612 14:47:55.808" endtime="20230612 14:47:55.828"/>
-</kw>
-<status status="PASS" starttime="20230612 14:47:55.699" endtime="20230612 14:47:55.828"/>
-</kw>
-<kw name="Check Trading Platforms">
-<kw name="Page Should Contain Element" library="SeleniumLibrary">
-<arg>${deriv_mt5}</arg>
-<doc>Verifies that element ``locator`` is found on the current page.</doc>
-<msg timestamp="20230612 14:47:55.848" level="INFO">Current page contains element '//h2[text() = "deriv MT5"]'.</msg>
-<status status="PASS" starttime="20230612 14:47:55.829" endtime="20230612 14:47:55.848"/>
-</kw>
-<kw name="Page Should Contain" library="SeleniumLibrary">
-<arg>Trade on Deriv MT5, the all-in-one CFD trading platform.</arg>
-<doc>Verifies that current page contains ``text``.</doc>
-<msg timestamp="20230612 14:47:55.873" level="INFO">Current page contains text 'Trade on Deriv MT5, the all-in-one CFD trading platform.'.</msg>
-<status status="PASS" starttime="20230612 14:47:55.848" endtime="20230612 14:47:55.873"/>
-</kw>
-<kw name="Page Should Contain Element" library="SeleniumLibrary">
-<arg>${derivx}</arg>
-<doc>Verifies that element ``locator`` is found on the current page.</doc>
-<msg timestamp="20230612 14:47:55.888" level="INFO">Current page contains element '//h2[text() = "deriv X"]'.</msg>
-<status status="PASS" starttime="20230612 14:47:55.873" endtime="20230612 14:47:55.888"/>
-</kw>
-<kw name="Page Should Contain" library="SeleniumLibrary">
-<arg>A highly customisable and easy-to-use CFD trading platform.</arg>
-<doc>Verifies that current page contains ``text``.</doc>
-<msg timestamp="20230612 14:47:55.908" level="INFO">Current page contains text 'A highly customisable and easy-to-use CFD trading platform.'.</msg>
-<status status="PASS" starttime="20230612 14:47:55.888" endtime="20230612 14:47:55.908"/>
-</kw>
-<kw name="Page Should Contain Element" library="SeleniumLibrary">
-<arg>${deriv_ez}</arg>
-<doc>Verifies that element ``locator`` is found on the current page.</doc>
-<msg timestamp="20230612 14:47:55.923" level="INFO">Current page contains element '//h2[text() = "deriv EZ"]'.</msg>
-<status status="PASS" starttime="20230612 14:47:55.908" endtime="20230612 14:47:55.924"/>
-</kw>
-<kw name="Page Should Contain" library="SeleniumLibrary">
-<arg>Trade on global markets from anywhere with our mobile-first CFD trading platform.</arg>
-<doc>Verifies that current page contains ``text``.</doc>
-<msg timestamp="20230612 14:47:55.943" level="INFO">Current page contains text 'Trade on global markets from anywhere with our mobile-first CFD trading platform.'.</msg>
-<status status="PASS" starttime="20230612 14:47:55.924" endtime="20230612 14:47:55.943"/>
-</kw>
-<kw name="Page Should Contain Element" library="SeleniumLibrary">
-<arg>${smart_trader}</arg>
-<doc>Verifies that element ``locator`` is found on the current page.</doc>
-<msg timestamp="20230612 14:47:55.958" level="INFO">Current page contains element '//h2[text() = "SmartTrader"]'.</msg>
-<status status="PASS" starttime="20230612 14:47:55.943" endtime="20230612 14:47:55.958"/>
-</kw>
-<kw name="Page Should Contain" library="SeleniumLibrary">
-<arg>Trade the world’s markets with our popular user-friendly platform.</arg>
-<doc>Verifies that current page contains ``text``.</doc>
-<msg timestamp="20230612 14:47:55.979" level="INFO">Current page contains text 'Trade the world’s markets with our popular user-friendly platform.'.</msg>
-<status status="PASS" starttime="20230612 14:47:55.958" endtime="20230612 14:47:55.979"/>
-</kw>
-<kw name="Page Should Contain Element" library="SeleniumLibrary">
-<arg>${deriv_trader}</arg>
-<doc>Verifies that element ``locator`` is found on the current page.</doc>
-<msg timestamp="20230612 14:47:55.993" level="INFO">Current page contains element '//h2[text() = "deriv Trader"]'.</msg>
-<status status="PASS" starttime="20230612 14:47:55.979" endtime="20230612 14:47:55.993"/>
-</kw>
-<kw name="Page Should Contain" library="SeleniumLibrary">
-<arg>A whole new trading experience on a powerful yet easy to use platform.</arg>
-<doc>Verifies that current page contains ``text``.</doc>
-<msg timestamp="20230612 14:47:56.012" level="INFO">Current page contains text 'A whole new trading experience on a powerful yet easy to use platform.'.</msg>
-<status status="PASS" starttime="20230612 14:47:55.993" endtime="20230612 14:47:56.012"/>
-</kw>
-<kw name="Page Should Contain Element" library="SeleniumLibrary">
-<arg>${deriv_go}</arg>
-<doc>Verifies that element ``locator`` is found on the current page.</doc>
-<msg timestamp="20230612 14:47:56.027" level="INFO">Current page contains element '//h2[text() = "deriv GO"]'.</msg>
-<status status="PASS" starttime="20230612 14:47:56.012" endtime="20230612 14:47:56.027"/>
-</kw>
-<kw name="Page Should Contain" library="SeleniumLibrary">
-<arg>Trade multipliers on forex, cryptocurrencies, and synthetic indices with our mobile app.</arg>
-<doc>Verifies that current page contains ``text``.</doc>
-<msg timestamp="20230612 14:47:56.047" level="INFO">Current page contains text 'Trade multipliers on forex, cryptocurrencies, and synthetic indices with our mobile app.'.</msg>
-<status status="PASS" starttime="20230612 14:47:56.027" endtime="20230612 14:47:56.047"/>
-</kw>
-<kw name="Page Should Contain Element" library="SeleniumLibrary">
-<arg>${deriv_bot}</arg>
-<doc>Verifies that element ``locator`` is found on the current page.</doc>
-<msg timestamp="20230612 14:47:56.062" level="INFO">Current page contains element '//h2[text() = "deriv Bot"]'.</msg>
-<status status="PASS" starttime="20230612 14:47:56.047" endtime="20230612 14:47:56.062"/>
-</kw>
-<kw name="Page Should Contain" library="SeleniumLibrary">
-<arg>Automated trading at your fingertips. No coding needed.</arg>
-<doc>Verifies that current page contains ``text``.</doc>
-<msg timestamp="20230612 14:47:56.091" level="INFO">Current page contains text 'Automated trading at your fingertips. No coding needed.'.</msg>
-<status status="PASS" starttime="20230612 14:47:56.062" endtime="20230612 14:47:56.091"/>
-</kw>
-<kw name="Page Should Contain Element" library="SeleniumLibrary">
-<arg>${binary_bot}</arg>
-<doc>Verifies that element ``locator`` is found on the current page.</doc>
-<msg timestamp="20230612 14:47:56.105" level="INFO">Current page contains element '//h2[text() = "Binary Bot"]'.</msg>
-<status status="PASS" starttime="20230612 14:47:56.091" endtime="20230612 14:47:56.105"/>
-</kw>
-<kw name="Page Should Contain" library="SeleniumLibrary">
-<arg>Our classic "drag-and-drop" tool for creating trading bots, featuring pop-up trading charts, for advanced users.</arg>
-<doc>Verifies that current page contains ``text``.</doc>
-<msg timestamp="20230612 14:47:56.125" level="INFO">Current page contains text 'Our classic "drag-and-drop" tool for creating trading bots, featuring pop-up trading charts, for advanced users.'.</msg>
-<status status="PASS" starttime="20230612 14:47:56.106" endtime="20230612 14:47:56.125"/>
-</kw>
-<status status="PASS" starttime="20230612 14:47:55.829" endtime="20230612 14:47:56.125"/>
-</kw>
-<status status="PASS" starttime="20230612 14:47:52.801" endtime="20230612 14:47:56.125"/>
-</test>
-<test id="s1-t2" name="Check Deriv Life" line="125">
-<kw name="Open About US Menu">
-<kw name="Click Element" library="SeleniumLibrary">
-<arg>//button[@id="radix-5-trigger-_t_About us_t_"]</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<msg timestamp="20230612 14:47:56.127" level="INFO">Clicking element '//button[@id="radix-5-trigger-_t_About us_t_"]'.</msg>
-<status status="PASS" starttime="20230612 14:47:56.126" endtime="20230612 14:47:56.240"/>
-</kw>
-<kw name="Wait Until Page Contains Element" library="SeleniumLibrary">
-<arg>//a[@href="/who-we-are/"]</arg>
-<arg>30</arg>
-<doc>Waits until the element ``locator`` appears on the current page.</doc>
-<status status="PASS" starttime="20230612 14:47:56.240" endtime="20230612 14:47:56.345"/>
-</kw>
-<status status="PASS" starttime="20230612 14:47:56.126" endtime="20230612 14:47:56.345"/>
-</kw>
-<kw name="Click Element" library="SeleniumLibrary">
-<arg>${deriv_life}</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<msg timestamp="20230612 14:47:56.346" level="INFO">Clicking element '//*[text()="deriv life"]//parent::a'.</msg>
-<status status="PASS" starttime="20230612 14:47:56.346" endtime="20230612 14:47:58.948"/>
-</kw>
-<kw name="Page Should Contain" library="SeleniumLibrary">
-<arg>Making an impact that matters</arg>
-<doc>Verifies that current page contains ``text``.</doc>
-<msg timestamp="20230612 14:47:58.973" level="INFO">Current page contains text 'Making an impact that matters'.</msg>
-<status status="PASS" starttime="20230612 14:47:58.949" endtime="20230612 14:47:58.973"/>
-</kw>
-<status status="PASS" starttime="20230612 14:47:56.126" endtime="20230612 14:47:58.973"/>
-</test>
-<test id="s1-t3" name="Check Social Networks" line="130">
-<kw name="Switch Window" library="SeleniumLibrary">
-<arg>Online trading platform | Forex, commodities, synthetic indices, stocks, and stock indices | Deriv</arg>
-<doc>Switches to browser window matching ``locator``.</doc>
-<msg timestamp="20230612 14:47:59.252" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-40.png"&gt;&lt;img src="selenium-screenshot-40.png" width="800px"&gt;&lt;/a&gt;</msg>
-<msg timestamp="20230612 14:47:59.252" level="FAIL">No window matching handle, name, title or URL 'Online trading platform | Forex, commodities, synthetic indices, stocks, and stock indices | Deriv' found.</msg>
-<status status="FAIL" starttime="20230612 14:47:58.975" endtime="20230612 14:47:59.252"/>
-</kw>
-<kw name="Scroll Element Into View" library="SeleniumLibrary">
-<arg>//footer</arg>
-<doc>Scrolls the element identified by ``locator`` into view.</doc>
-<status status="NOT RUN" starttime="20230612 14:47:59.253" endtime="20230612 14:47:59.253"/>
-</kw>
-<kw name="Page Should Contain Element" library="SeleniumLibrary">
-<arg>${youtube}</arg>
-<doc>Verifies that element ``locator`` is found on the current page.</doc>
-<status status="NOT RUN" starttime="20230612 14:47:59.253" endtime="20230612 14:47:59.253"/>
-</kw>
-<kw name="Page Should Contain Element" library="SeleniumLibrary">
-<arg>${telegram}</arg>
-<doc>Verifies that element ``locator`` is found on the current page.</doc>
-<status status="NOT RUN" starttime="20230612 14:47:59.253" endtime="20230612 14:47:59.253"/>
-</kw>
-<kw name="Page Should Contain Element" library="SeleniumLibrary">
-<arg>${facebook}</arg>
-<doc>Verifies that element ``locator`` is found on the current page.</doc>
-<status status="NOT RUN" starttime="20230612 14:47:59.253" endtime="20230612 14:47:59.253"/>
-</kw>
-<kw name="Page Should Contain Element" library="SeleniumLibrary">
-<arg>${twitter}</arg>
-<doc>Verifies that element ``locator`` is found on the current page.</doc>
-<status status="NOT RUN" starttime="20230612 14:47:59.253" endtime="20230612 14:47:59.254"/>
-</kw>
-<kw name="Page Should Contain Element" library="SeleniumLibrary">
-<arg>${instagram}</arg>
-<doc>Verifies that element ``locator`` is found on the current page.</doc>
-<status status="NOT RUN" starttime="20230612 14:47:59.254" endtime="20230612 14:47:59.254"/>
-</kw>
-<kw name="Page Should Contain Element" library="SeleniumLibrary">
-<arg>${linkedin}</arg>
-<doc>Verifies that element ``locator`` is found on the current page.</doc>
-<status status="NOT RUN" starttime="20230612 14:47:59.254" endtime="20230612 14:47:59.254"/>
-</kw>
-<status status="FAIL" starttime="20230612 14:47:58.974" endtime="20230612 14:47:59.254">No window matching handle, name, title or URL 'Online trading platform | Forex, commodities, synthetic indices, stocks, and stock indices | Deriv' found.</status>
-</test>
-<test id="s1-t4" name="Swap Calculator" line="141">
-<kw name="Go To Swap Calculator">
-<kw name="Chrome Headless">
-<kw name="Set Chrome Options">
-<var>${chrome_options}</var>
-<doc>Set Chrome options for headless mode</doc>
-<kw name="Evaluate" library="BuiltIn">
-<var>${options}</var>
-<arg>sys.modules['selenium.webdriver'].ChromeOptions()</arg>
-<arg>sys, selenium.webdriver</arg>
-<doc>Evaluates the given expression in Python and returns the result.</doc>
-<msg timestamp="20230612 14:47:59.257" level="INFO">${options} = &lt;selenium.webdriver.chrome.options.Options object at 0x7fc3b3dd3e80&gt;</msg>
-<status status="PASS" starttime="20230612 14:47:59.256" endtime="20230612 14:47:59.257"/>
-</kw>
-<for flavor="IN">
-<var>${option}</var>
-<value>@{chrome_arguments}</value>
-<iter>
-<var name="${option}">--disable-infobars</var>
-<kw name="Call Method" library="BuiltIn">
-<arg>${options}</arg>
-<arg>add_argument</arg>
-<arg>${option}</arg>
-<doc>Calls the named method of the given object with the provided arguments.</doc>
-<status status="PASS" starttime="20230612 14:47:59.257" endtime="20230612 14:47:59.257"/>
-</kw>
-<status status="PASS" starttime="20230612 14:47:59.257" endtime="20230612 14:47:59.257"/>
-</iter>
-<iter>
-<var name="${option}">--headless</var>
-<kw name="Call Method" library="BuiltIn">
-<arg>${options}</arg>
-<arg>add_argument</arg>
-<arg>${option}</arg>
-<doc>Calls the named method of the given object with the provided arguments.</doc>
-<status status="PASS" starttime="20230612 14:47:59.258" endtime="20230612 14:47:59.258"/>
-</kw>
-<status status="PASS" starttime="20230612 14:47:59.258" endtime="20230612 14:47:59.258"/>
-</iter>
-<iter>
-<var name="${option}">--disable-gpu</var>
-<kw name="Call Method" library="BuiltIn">
-<arg>${options}</arg>
-<arg>add_argument</arg>
-<arg>${option}</arg>
-<doc>Calls the named method of the given object with the provided arguments.</doc>
-<status status="PASS" starttime="20230612 14:47:59.258" endtime="20230612 14:47:59.258"/>
-</kw>
-<status status="PASS" starttime="20230612 14:47:59.258" endtime="20230612 14:47:59.258"/>
-</iter>
-<iter>
-<var name="${option}">--window-size=1280,1024</var>
-<kw name="Call Method" library="BuiltIn">
-<arg>${options}</arg>
-<arg>add_argument</arg>
-<arg>${option}</arg>
-<doc>Calls the named method of the given object with the provided arguments.</doc>
-<status status="PASS" starttime="20230612 14:47:59.259" endtime="20230612 14:47:59.259"/>
-</kw>
-<status status="PASS" starttime="20230612 14:47:59.259" endtime="20230612 14:47:59.259"/>
-</iter>
-<status status="PASS" starttime="20230612 14:47:59.257" endtime="20230612 14:47:59.259"/>
-</for>
-<msg timestamp="20230612 14:47:59.259" level="INFO">${chrome_options} = &lt;selenium.webdriver.chrome.options.Options object at 0x7fc3b3dd3e80&gt;</msg>
-<status status="PASS" starttime="20230612 14:47:59.256" endtime="20230612 14:47:59.259"/>
-</kw>
-<kw name="Create Webdriver" library="SeleniumLibrary">
-<arg>Chrome</arg>
-<arg>chrome_options=${chrome_options}</arg>
-<doc>Creates an instance of Selenium WebDriver.</doc>
-<msg timestamp="20230612 14:47:59.260" level="INFO">Creating an instance of the Chrome WebDriver.</msg>
-<status status="PASS" starttime="20230612 14:47:59.259" endtime="20230612 14:47:59.895"/>
-</kw>
-<status status="PASS" starttime="20230612 14:47:59.256" endtime="20230612 14:47:59.895"/>
-</kw>
-<kw name="Go To" library="SeleniumLibrary">
-<arg>${swap_calculator}</arg>
-<doc>Navigates the current browser window to the provided ``url``.</doc>
-<msg timestamp="20230612 14:47:59.895" level="INFO">Opening url 'https://deriv.com/trader-tools/swap-calculator/'</msg>
-<status status="PASS" starttime="20230612 14:47:59.895" endtime="20230612 14:48:01.549"/>
-</kw>
-<kw name="Set Window Size" library="SeleniumLibrary">
-<arg>1300</arg>
-<arg>800</arg>
-<doc>Sets current windows size to given ``width`` and ``height``.</doc>
-<status status="PASS" starttime="20230612 14:48:01.549" endtime="20230612 14:48:01.654"/>
-</kw>
-<kw name="Wait Until Page Contains Element" library="SeleniumLibrary">
-<arg>//h1[text()="Swap Calculator"]</arg>
-<doc>Waits until the element ``locator`` appears on the current page.</doc>
-<status status="PASS" starttime="20230612 14:48:01.654" endtime="20230612 14:48:01.672"/>
-</kw>
-<status status="PASS" starttime="20230612 14:47:59.255" endtime="20230612 14:48:01.672"/>
-</kw>
-<kw name="Scroll Element Into View" library="SeleniumLibrary">
-<arg>${calculator_table}</arg>
-<doc>Scrolls the element identified by ``locator`` into view.</doc>
-<status status="PASS" starttime="20230612 14:48:01.672" endtime="20230612 14:48:01.968"/>
-</kw>
-<kw name="Switch To Financial">
-<kw name="Click Element" library="SeleniumLibrary">
-<arg>//p[contains(@class,"typography__Text") and text()="Financial"]</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<msg timestamp="20230612 14:48:01.970" level="INFO">Clicking element '//p[contains(@class,"typography__Text") and text()="Financial"]'.</msg>
-<status status="PASS" starttime="20230612 14:48:01.969" endtime="20230612 14:48:02.186"/>
-</kw>
-<status status="PASS" starttime="20230612 14:48:01.969" endtime="20230612 14:48:02.186"/>
-</kw>
-<kw name="Select Symbol">
-<kw name="Click Element" library="SeleniumLibrary">
-<arg>${symbol}</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<msg timestamp="20230612 14:48:02.187" level="INFO">Clicking element '//ul[@id="symbol"]'.</msg>
-<status status="PASS" starttime="20230612 14:48:02.187" endtime="20230612 14:48:02.341"/>
-</kw>
-<kw name="Click Element" library="SeleniumLibrary">
-<arg>id:AUDUSD</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<msg timestamp="20230612 14:48:02.341" level="INFO">Clicking element 'id:AUDUSD'.</msg>
-<status status="PASS" starttime="20230612 14:48:02.341" endtime="20230612 14:48:02.487"/>
-</kw>
-<status status="PASS" starttime="20230612 14:48:02.186" endtime="20230612 14:48:02.487"/>
-</kw>
-<kw name="Fill Form">
-<arg>id:volume</arg>
-<arg>100</arg>
-<kw name="Click Element" library="SeleniumLibrary">
-<arg>${field}</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<msg timestamp="20230612 14:48:02.489" level="INFO">Clicking element 'id:volume'.</msg>
-<status status="PASS" starttime="20230612 14:48:02.488" endtime="20230612 14:48:02.586"/>
-</kw>
-<kw name="Input Text" library="SeleniumLibrary">
-<arg>${field}</arg>
-<arg>${value}</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<msg timestamp="20230612 14:48:02.587" level="INFO">Typing text '100' into text field 'id:volume'.</msg>
-<status status="PASS" starttime="20230612 14:48:02.586" endtime="20230612 14:48:02.711"/>
-</kw>
-<status status="PASS" starttime="20230612 14:48:02.487" endtime="20230612 14:48:02.711"/>
-</kw>
-<kw name="Fill Form">
-<arg>id:pointValue</arg>
+<arg>dt_login_button</arg>
 <arg>10</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" starttime="20230612 18:01:36.630" endtime="20230612 18:01:36.669"/>
+</kw>
 <kw name="Click Element" library="SeleniumLibrary">
-<arg>${field}</arg>
+<arg>dt_login_button</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<msg timestamp="20230612 14:48:02.712" level="INFO">Clicking element 'id:pointValue'.</msg>
-<status status="PASS" starttime="20230612 14:48:02.712" endtime="20230612 14:48:02.788"/>
+<msg timestamp="20230612 18:01:36.670" level="INFO">Clicking element 'dt_login_button'.</msg>
+<status status="PASS" starttime="20230612 18:01:36.669" endtime="20230612 18:01:39.153"/>
+</kw>
+<kw name="Wait Until Page Contains Element" library="SeleniumLibrary">
+<arg>txtEmail</arg>
+<arg>10</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" starttime="20230612 18:01:39.153" endtime="20230612 18:01:39.176"/>
 </kw>
 <kw name="Input Text" library="SeleniumLibrary">
-<arg>${field}</arg>
-<arg>${value}</arg>
+<arg>txtEmail</arg>
+<arg>${email}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<msg timestamp="20230612 14:48:02.789" level="INFO">Typing text '10' into text field 'id:pointValue'.</msg>
-<status status="PASS" starttime="20230612 14:48:02.789" endtime="20230612 14:48:02.876"/>
+<msg timestamp="20230612 18:01:39.177" level="INFO">Typing text 'farhah+1000@besquare.com.my' into text field 'txtEmail'.</msg>
+<status status="PASS" starttime="20230612 18:01:39.176" endtime="20230612 18:01:39.310"/>
 </kw>
-<status status="PASS" starttime="20230612 14:48:02.711" endtime="20230612 14:48:02.876"/>
+<kw name="Input Password" library="SeleniumLibrary">
+<arg>txtPass</arg>
+<arg>${password}</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<msg timestamp="20230612 18:01:39.312" level="INFO">Typing password into text field 'txtPass'.</msg>
+<msg timestamp="20230612 18:01:39.365" level="INFO">Temporally setting log level to: NONE</msg>
+<msg timestamp="20230612 18:01:39.417" level="INFO">Log level changed from NONE to INFO.</msg>
+<status status="PASS" starttime="20230612 18:01:39.311" endtime="20230612 18:01:39.417"/>
 </kw>
-<kw name="Fill Form">
-<arg>id:swapRate</arg>
-<arg>0.5</arg>
 <kw name="Click Element" library="SeleniumLibrary">
-<arg>${field}</arg>
+<arg>//button[@name="login"]</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<msg timestamp="20230612 14:48:02.878" level="INFO">Clicking element 'id:swapRate'.</msg>
-<status status="PASS" starttime="20230612 14:48:02.877" endtime="20230612 14:48:02.975"/>
+<msg timestamp="20230612 18:01:39.418" level="INFO">Clicking element '//button[@name="login"]'.</msg>
+<status status="PASS" starttime="20230612 18:01:39.417" endtime="20230612 18:01:46.974"/>
 </kw>
-<kw name="Input Text" library="SeleniumLibrary">
-<arg>${field}</arg>
-<arg>${value}</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<msg timestamp="20230612 14:48:02.976" level="INFO">Typing text '0.5' into text field 'id:swapRate'.</msg>
-<status status="PASS" starttime="20230612 14:48:02.976" endtime="20230612 14:48:03.161"/>
+<kw name="Wait Until Page Contains Element" library="SeleniumLibrary">
+<arg>${profile_icon}</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" starttime="20230612 18:01:46.974" endtime="20230612 18:01:46.999"/>
 </kw>
-<status status="PASS" starttime="20230612 14:48:02.877" endtime="20230612 14:48:03.161"/>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${profile_icon}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20230612 18:01:47.001" endtime="20230612 18:01:47.040"/>
 </kw>
-<kw name="Click Button" library="SeleniumLibrary">
-<arg>css:[type="submit"]</arg>
-<doc>Clicks the button identified by ``locator``.</doc>
-<msg timestamp="20230612 14:48:03.162" level="INFO">Clicking button 'css:[type="submit"]'.</msg>
-<status status="PASS" starttime="20230612 14:48:03.161" endtime="20230612 14:48:03.325"/>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${profile_icon}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20230612 18:01:47.042" level="INFO">Clicking element '//a[@href="/account/personal-details"]'.</msg>
+<status status="PASS" starttime="20230612 18:01:47.041" endtime="20230612 18:01:47.252"/>
 </kw>
-<kw name="Check Swap Charge">
-<kw name="Evaluate" library="BuiltIn">
-<var>${expected_swap}</var>
-<arg>100*100000*10*0.5</arg>
-<doc>Evaluates the given expression in Python and returns the result.</doc>
-<msg timestamp="20230612 14:48:03.326" level="INFO">${expected_swap} = 50000000.0</msg>
-<status status="PASS" starttime="20230612 14:48:03.326" endtime="20230612 14:48:03.326"/>
+<kw name="Wait Until Page Contains Element" library="SeleniumLibrary">
+<arg>${api_token}</arg>
+<arg>10</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" starttime="20230612 18:01:47.253" endtime="20230612 18:01:49.313"/>
 </kw>
-<kw name="Element Text Should Be" library="SeleniumLibrary">
-<arg>//*[text()="USD"]//preceding-sibling::div</arg>
-<arg>${expected_swap}</arg>
-<doc>Verifies that element ``locator`` contains exact the text ``expected``.</doc>
-<msg timestamp="20230612 14:48:03.327" level="WARN">Keyword 'Element Text Should Be' found both from a custom library 'SeleniumLibrary' and a standard library 'XML'. The custom keyword is used. To select explicitly, and to get rid of this warning, use either 'SeleniumLibrary.Element Text Should Be' or 'XML.Element Text Should Be'.</msg>
-<msg timestamp="20230612 14:48:03.328" level="INFO">Verifying element '//*[text()="USD"]//preceding-sibling::div' contains exact text '50000000.0'.</msg>
-<msg timestamp="20230612 14:48:03.571" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-41.png"&gt;&lt;img src="selenium-screenshot-41.png" width="800px"&gt;&lt;/a&gt;</msg>
-<msg timestamp="20230612 14:48:03.571" level="FAIL">The text of element '//*[text()="USD"]//preceding-sibling::div' should have been '50000000.0' but it was '50,000,000'.</msg>
-<status status="FAIL" starttime="20230612 14:48:03.327" endtime="20230612 14:48:03.571"/>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${api_token}</arg>
+<arg>10</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20230612 18:01:49.313" endtime="20230612 18:01:49.394"/>
 </kw>
-<status status="FAIL" starttime="20230612 14:48:03.325" endtime="20230612 14:48:03.572"/>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${api_token}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20230612 18:01:49.395" level="INFO">Clicking element '//a[@href="/account/api-token"]'.</msg>
+<status status="PASS" starttime="20230612 18:01:49.394" endtime="20230612 18:01:49.633"/>
 </kw>
-<status status="FAIL" starttime="20230612 14:47:59.255" endtime="20230612 14:48:03.572">The text of element '//*[text()="USD"]//preceding-sibling::div' should have been '50000000.0' but it was '50,000,000'.</status>
+<kw name="Wait Until Page Contains Element" library="SeleniumLibrary">
+<arg>${read_scope}</arg>
+<arg>10</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" starttime="20230612 18:01:49.633" endtime="20230612 18:01:50.109"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${read_scope}</arg>
+<arg>10</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<msg timestamp="20230612 18:02:00.428" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-52.png"&gt;&lt;img src="selenium-screenshot-52.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg timestamp="20230612 18:02:00.428" level="FAIL">Element '//*[@name="read"]' not visible after 10 seconds.</msg>
+<status status="FAIL" starttime="20230612 18:01:50.109" endtime="20230612 18:02:00.428"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${read_scope}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20230612 18:02:00.429" endtime="20230612 18:02:00.429"/>
+</kw>
+<kw name="Wait Until Page Contains Element" library="SeleniumLibrary">
+<arg>${trade_scope}</arg>
+<arg>10</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="NOT RUN" starttime="20230612 18:02:00.429" endtime="20230612 18:02:00.429"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${trade_scope}</arg>
+<arg>10</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="NOT RUN" starttime="20230612 18:02:00.429" endtime="20230612 18:02:00.429"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${trade_scope}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20230612 18:02:00.430" endtime="20230612 18:02:00.430"/>
+</kw>
+<status status="FAIL" starttime="20230612 18:01:27.048" endtime="20230612 18:02:00.430">Element '//*[@name="read"]' not visible after 10 seconds.</status>
 </test>
-<status status="FAIL" starttime="20230612 14:47:52.572" endtime="20230612 14:48:03.573"/>
+<status status="FAIL" starttime="20230612 18:01:26.874" endtime="20230612 18:02:00.431"/>
 </suite>
 <statistics>
 <total>
-<stat pass="2" fail="2" skip="0">All Tests</stat>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
 </total>
 <tag>
 </tag>
 <suite>
-<stat pass="2" fail="2" skip="0" id="s1" name="Test">Test</stat>
+<stat pass="0" fail="1" skip="0" id="s1" name="Project1">Project1</stat>
 </suite>
 </statistics>
 <errors>
-<msg timestamp="20230612 14:48:03.327" level="WARN">Keyword 'Element Text Should Be' found both from a custom library 'SeleniumLibrary' and a standard library 'XML'. The custom keyword is used. To select explicitly, and to get rid of this warning, use either 'SeleniumLibrary.Element Text Should Be' or 'XML.Element Text Should Be'.</msg>
 </errors>
 </robot>
