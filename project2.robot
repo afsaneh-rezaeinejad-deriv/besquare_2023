@@ -2,8 +2,8 @@
 Library     SeleniumLibrary
 
 *** Variables ***
-${email}    farhah+107@besquare.com.my
-${password}    Farhah_97
+${email}    
+${password}    
 ${profile_icon}    //a[@href="/account/personal-details"]
 ${close_account_directory}    //*[@id="/account/closing-account"]
 ${close_my_account}    //button[@class="dc-btn dc-btn--primary dc-btn__large closing-account__button--close-account"]

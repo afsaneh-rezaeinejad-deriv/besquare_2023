@@ -2,8 +2,8 @@
 Library     SeleniumLibrary
 
 *** Variables ***
-${email}    farhah+1000@besquare.com.my
-${password}    Farhah_97
+${email}    
+${password}    
 ${profile_icon}    //a[@href="/account/personal-details"]
 ${api_token}    //a[@href="/account/api-token"]
 ${read_scope}    //*[@name="read"]//parent::label
