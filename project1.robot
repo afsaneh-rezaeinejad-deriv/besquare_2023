@@ -2,14 +2,15 @@
 Library     SeleniumLibrary
 
 *** Variables ***
-${email}    
-${password}    
+${email}    farhah+107@besquare.com.my
+${password}    Farhah_97
 ${profile_icon}    //a[@href="/account/personal-details"]
 ${api_token}    //a[@href="/account/api-token"]
 ${read_scope}    //*[@name="read"]//parent::label
 ${trade_scope}    //*[@name="trade"]//parent::label
-${token_name}    //input[@name="token_name"]//parent::label   
-
+${token_name}    CoinSystem   
+${create_token_name}    //button[@class="dc-btn dc-btn__effect dc-btn--primary dc-btn__large dc-btn__button-group da-api-token__button"]
+${delete_api_token}    //*[@data-testid="dt_token_delete_icon"]
 
 *** Test Cases ***
 API Token Directory
@@ -19,6 +20,9 @@ API Token Directory
     Read API Scope
     Trade API Scope
     API Token Name
+    Create API Token
+    Delete API Token
+
 
 *** Keywords ***
 Clear Input Field
@@ -51,7 +55,16 @@ Trade API Scope
     Wait Until Page Contains Element    ${trade_scope}    10    
     Wait Until Element Is Visible    ${trade_scope}    10    
     Click Element    ${trade_scope}
+
 API Token Name
-    Wait Until Page Contains Element    ${token_name}    10    
-    Wait Until Element Is Visible    ${token_name}    10    
-    Click Element    ${token_name}
+    Wait Until Page Contains Element    txtTokenName    10
+    Input Text    txtTokenName    ${token_name}    5
+    Click Element    ${create_token_name}
+Create API Token
+    Wait Until Page Contains Element    ${create_token_name}    10    
+    Wait Until Element Is Visible    ${create_token_name}    10    
+    Click Element    ${create_token_name}
+Delete API Token
+    Wait Until Page Contains Element    ${delete_api_token}    10    
+    Wait Until Element Is Visible    ${delete_api_token}    10    
+    Click Element    ${delete_api_token}

@@ -2,8 +2,8 @@
 Library     SeleniumLibrary
 
 *** Variables ***
-${email}    
-${password}    
+${email}    farhah+107@besquare.com.my
+${password}    Farhah_97
 ${profile_icon}    //a[@href="/account/personal-details"]
 ${close_account_directory}    //*[@id="/account/closing-account"]
 ${close_my_account}    //button[@class="dc-btn dc-btn--primary dc-btn__large closing-account__button--close-account"]
@@ -13,10 +13,7 @@ ${not_interested}    //input[@name="not-interested"]//following-sibling::span[@c
 ${continue_btn}    //button[@class="dc-btn dc-btn__effect dc-btn--primary dc-btn__large"]
 ${go_back}    //span[text()="Go Back"]//parent::button[@class="dc-btn dc-btn__effect dc-btn--secondary dc-btn__large"]
 ${close_account}    //span[text()="Close account"]//parent::button[@class="dc-btn dc-btn__effect dc-btn--primary dc-btn__large"]
-${deriv_login_btn}    //button[@class="button primary outlined text-small typography-weight-bold"]
-${email_relogin}    farhah+107@besquare.com.my
-${password_relogin}    Farhah_97
-${relogin}    //button[@name="login"]
+
 
 *** Test Cases ***
 API Token Directory
@@ -31,8 +28,6 @@ API Token Directory
     Go Back 1
     Continue 2 Close Account
     Close Account 1
-    Deriv Page
-
 
 *** Keywords ***
 Clear Input Field
@@ -98,12 +93,3 @@ Close Account 1
     Wait Until Page Contains Element    ${close_account}    10
     Wait Until Element Is Visible    ${close_account}    10
     Click Element    ${close_account}
-Deriv Page
-    Sleep    10
-    Wait Until Page Contains Element    ${deriv_login_btn}    5
-    Wait Until Element Is Visible    ${deriv_login_btn}    5
-    Click Element    ${deriv_login_btn}
-    Wait Until Page Contains Element    txtEmail    10
-    Input Text    txtEmail    ${email_relogin}    5
-    Input Password    txtPass    ${password_relogin}    5
-    Click Element    ${relogin}
